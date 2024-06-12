@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: roboto, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+h1{
+    font-size: 2em;
+}
+
+h2{
+    font-size: 1.25em;
+}
+
+header{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav{
+    visibility: hidden;
+    opacity: 0;
+    background-color: black;
+    display: flex;
+}
+
+.open{
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.close{
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+
+.nav.visible{
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    padding: 2rem;
+    box-shadow: 0 0 0 100vmax rgba(0,0,0,0.5);
+}
+
+
+ul li{
+    list-style: none;
+    padding: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.logo{
+    height: 150px;
+}
+
+/* Estilos para los botones */
+ul li button {
+    font-size: 14px;
+    color: #e1e1e1;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+  }
+  
+  /* Al pasar el mouse o hacer clic, cambia el color del texto */
+  ul li button:hover,
+  ul li button:focus {
+    color: #fff;
+  }
+  
+  /* Borde inferior al pasar el mouse o hacer clic */
+  ul li button:hover:after,
+  ul li button:focus:after {
+    width: 100%;
+    left: 0%;
+  }
+  
+  /* Borde inferior inicial (sin hover ni focus) */
+  ul li button:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+  }

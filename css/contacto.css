@@ -1,0 +1,417 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: roboto, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+h2 {
+    font-size: 1.25em;
+}
+
+header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav {
+    visibility: hidden;
+    opacity: 0;
+    background-color: black;
+    display: flex;
+}
+
+.open {
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.close {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+
+.nav.visible {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    padding: 2rem;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+}
+
+
+ul li {
+    list-style: none;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo {
+    height: 150px;
+}
+
+/* Estilos para los botones */
+ul li button {
+    font-size: 14px;
+    color: #e1e1e1;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+}
+
+/* Al pasar el mouse o hacer clic, cambia el color del texto */
+ul li button:hover,
+ul li button:focus {
+    color: #fff;
+}
+
+/* Borde inferior al pasar el mouse o hacer clic */
+ul li button:hover:after,
+ul li button:focus:after {
+    width: 100%;
+    left: 0%;
+}
+
+/* Borde inferior inicial (sin hover ni focus) */
+ul li button:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+}
+
+.select {
+    background-color: rgba(34, 34, 34, 0.5);
+    border-bottom: 2px solid #fff;
+}
+
+h1{
+    padding-top: 20px;
+    text-align: center;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  border: solid 2px black;
+  margin: 5px;
+}
+
+.form .title {
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+  }
+  
+
+.message {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+.form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: rgb(0, 0, 0);
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span {
+  color: green;
+}
+
+.input01 {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(0, 0, 0, 0.397);
+  border-radius: 5px;
+  border: 1px solid #000000;
+}
+
+.form label .input01 + span {
+  position: absolute;
+  left: 10px;
+  top: 50px;
+  color: rgb(0, 0, 0);
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input01:placeholder-shown + span {
+  top: 40px;
+  font-size: 0.9em;
+}
+
+.form label .input01:focus + span,.form label .input01:valid + span {
+  top: 50px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input01:valid + span {
+  color: green;
+}
+
+.fancy {
+  background-color: transparent;
+  border: 2px solid #000000;
+  border-radius: 0px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 390;
+  letter-spacing: 2px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 8px 30px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+  font-size: 13px;
+}
+
+.fancy::before {
+  content: " ";
+  width: 1.7rem;
+  height: 2px;
+  background: #000000;
+  top: 50%;
+  left: 1.5em;
+  position: absolute;
+  transform: translateY(-50%);
+  transform: translateX(230%);
+  transform-origin: center;
+  transition: background 0.3s linear, width 0.3s linear;
+}
+
+.fancy .text {
+  font-size: 1.125em;
+  line-height: 1.33333em;
+  padding-left: 2em;
+  display: block;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  text-transform: lowercase;
+  text-decoration: none;
+  color: #000000;
+  transform: translateX(30%);
+}
+
+.fancy .top-key {
+  height: 2px;
+  width: 1.5625rem;
+  top: -2px;
+  left: 0.625rem;
+  position: absolute;
+  background: white;
+  transition: width 0.5s ease-out, left 0.3s ease-out;
+}
+
+.fancy .bottom-key-1 {
+  height: 2px;
+  width: 1.5625rem;
+  right: 1.875rem;
+  bottom: -2px;
+  position: absolute;
+  background: white;
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy .bottom-key-2 {
+  height: 2px;
+  width: 0.625rem;
+  right: 0.625rem;
+  bottom: -2px;
+  position: absolute;
+  background: white;
+  transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy:hover {
+  color: white;
+  background: #000000;
+}
+
+.fancy:hover::before {
+  width: 1.5rem;
+  background: white;
+}
+
+.fancy:hover .text {
+  color: white;
+  padding-left: 1.5em;
+}
+
+.fancy:hover .top-key {
+  left: -2px;
+  width: 0px;
+}
+
+.fancy:hover .bottom-key-1,
+ .fancy:hover .bottom-key-2 {
+  right: 0;
+  width: 0;
+}
+
+.form-container img{
+    border: solid 2px black;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgb(255, 255, 255);
+}
+
+.button-scroll {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(20, 20, 20, 1);
+  border: none;
+  font-weight: 600;
+  margin: 10px;
+  cursor: pointer;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.svgIcon {
+  width: 12px;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+
+@media (min-width: 800px) {
+
+    header nav {
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+    }
+
+    header ul {
+        display: flex;
+        padding-right: 20px;
+    }
+
+    header ul li {
+        margin: 5px;
+    }
+
+
+    .open,
+    .close {
+        display: none;
+    }
+    .form-container{
+      display: flex;
+      flex-direction: row;
+  }
+}

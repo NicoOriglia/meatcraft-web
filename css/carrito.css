@@ -1,0 +1,403 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: roboto, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.25em;
+}
+
+/* Estilos para los botones */
+ul li button {
+    font-size: 14px;
+    color: #e1e1e1;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+}
+
+/* Al pasar el mouse o hacer clic, cambia el color del texto */
+ul li button:hover,
+ul li button:focus {
+    color: #fff;
+}
+
+/* Borde inferior al pasar el mouse o hacer clic */
+ul li button:hover:after,
+ul li button:focus:after {
+    width: 100%;
+    left: 0%;
+}
+
+/* Borde inferior inicial (sin hover ni focus) */
+ul li button:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+}
+
+header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav {
+    visibility: hidden;
+    opacity: 0;
+    background-color: black;
+    display: flex;
+}
+
+.open {
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.close {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+
+.nav.visible {
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    padding: 2rem;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+}
+
+
+ul li {
+    list-style: none;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#cuenta-carrito {
+
+    color: white;
+    border-radius: 100%;
+    width: 15px;
+    line-height: 15px;
+    aspect-ratio: 1;
+    display: inline-block;
+    font-size: 15px;
+}
+
+.logo {
+    height: 150px;
+}
+
+.button-scroll {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(20, 20, 20, 1);
+  border: none;
+  font-weight: 600;
+  margin: 10px;
+  cursor: pointer;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.svgIcon {
+  width: 12px;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+
+#container-burger {
+    width: 300px;
+    margin: auto;
+}
+
+.tarjeta-burger {
+    display: flex;
+    padding: 5px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.tarjeta-burger img {
+    max-width: 50%;
+    border-radius: 15px;
+    border: solid 3px black;
+}
+
+
+.tarjeta-burger button{
+    background-color: black;
+    color: white;
+    height: 20px;
+}
+
+#totales, #carrito-vacio{
+    text-align: center;
+}
+#carrito-vacio a {
+  color: black;
+}
+
+.oculto{
+  display: none;
+}
+
+.button-container{
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Empieza boton comprar*/
+.button {
+    
+    --width: 100px;
+    --height: 35px;
+    --tooltip-height: 35px;
+    --tooltip-width: 90px;
+    --gap-between-tooltip-to-button: 18px;
+    --button-color: #000000;
+    --tooltip-color: #fff;
+    width: var(--width);
+    height: var(--height);
+    background: var(--button-color);
+    position: relative;
+    text-align: center;
+    border-radius: 0.45em;
+    font-family: "Arial";
+    transition: background 0.3s;
+  }
+  
+  .button::before {
+    position: absolute;
+    content: attr(data-tooltip);
+    width: var(--tooltip-width);
+    height: var(--tooltip-height);
+    background-color: #555;
+    font-size: 0.9rem;
+    color: #fff;
+    border-radius: .25em;
+    line-height: var(--tooltip-height);
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+    left: calc(50% - var(--tooltip-width) / 2);
+  }
+  
+  .button::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #555;
+    left: calc(50% - 10px);
+    bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+  }
+  
+  .button::after,.button::before {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+  }
+  
+  .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-wrapper,.text,.icon {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    color: #fff;
+  }
+  
+  .text {
+    top: 0
+  }
+  
+  .text,.icon {
+    transition: top 0.5s;
+  }
+  
+  .icon {
+    color: #fff;
+    top: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .button:hover {
+    background: #222;
+  }
+  
+  .button:hover .text {
+    top: -100%;
+  }
+  
+  .button:hover .icon {
+    top: 0;
+  }
+  
+  .button:hover:before,.button:hover:after {
+    opacity: 1;
+    visibility: hidden;
+  }
+  
+  .button:hover:after {
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+  }
+  
+  .button:hover:before {
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+  }
+  /*termina boton comprar*/
+  /*empieza boton remove*/
+  button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 0px solid transparent;
+    background-color: rgb(0, 0, 0);
+    border-radius: 1.25em;
+    transition: all 0.2s linear;
+   }
+   
+   button:hover {
+    box-shadow: 3.4px 2.5px 4.9px rgba(0, 0, 0, 0.025),
+     8.6px 6.3px 12.4px rgba(0, 0, 0, 0.035),
+     17.5px 12.8px 25.3px rgba(0, 0, 0, 0.045),
+     36.1px 26.3px 52.2px rgba(0, 0, 0, 0.055),
+     99px 72px 143px rgba(0, 0, 0, 0.08);
+   }
+   
+   .tooltip {
+    position: relative;
+    display: inline-block;
+   }
+   
+   .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 4em;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 110%;
+   }
+   
+   .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.7) transparent transparent;
+   }
+   
+   .tooltip:hover .tooltiptext {
+    visibility: hidden;
+   }
+  /*termina boton remove*/
+footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgb(255, 255, 255);
+}
+
+
+@media (min-width: 800px) {
+    header nav {
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+    }
+
+    header ul {
+        display: flex;
+        padding-right: 20px;
+    }
+
+    header ul li {
+        margin: 5px;
+    }
+
+    .open,
+    .close {
+        display: none;
+    }
+}
